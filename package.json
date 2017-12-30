@@ -1,0 +1,26 @@
+{
+  "name": "crypto-ecdh",
+  "version": "0.1.0",
+  "description": "Easy ECDH",
+  "main": "ecdh.js",
+  "repository": "https://github.com/crypto-io/crypto-ecdh",
+  "author": "Glenn Vandeuren <vandeurenglenn@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "backed": {
+    "bundles": [
+      {
+        "src": "src/index.js",
+        "dest": "ecdh.js",
+        "format": "cjs"
+      }
+    ]
+  },
+  "dependencies": {
+    "crypto-io-utils": "^0.1.0-alpha.4",
+    "elliptic": "^6.4.0"
+  },
+  "devDependencies": {
+    "tape": "^4.8.0"
+  }
+}
