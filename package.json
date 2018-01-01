@@ -17,7 +17,6 @@
     ]
   },
   "dependencies": {
-    "crypto": "^1.0.1",
     "crypto-io-utils": "^0.1.0-rc.2"
   },
   "devDependencies": {
