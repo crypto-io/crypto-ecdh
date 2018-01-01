@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - '7'
+  - '8'
+  - '9'
+cache:
+  yarn: true
+  directories:
+    - 'node_modules'
+    - $(npm config get prefix)/lib/node_modules
+before_script:
+- npm install -g backed-cli
+- backed -b
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: vandeurenglenn@gmail.com
+  api_key:
+    secure: prBbT3fFNY/0424LV1NP7A4chQgOyMY7bQWScto0/9XCDR1SC2W6wRtUGbfCECOS7CXTJNHFJ2HiouMH7wwH1E4Mue1zQY8o6eFmkc32veAKadF2giyI2Y9ZkNluPpKHT8D5y0vdSa+v5q/8kAeN9e6XBe2DoOvhk0C6JHSfBf9DAtFvFiMGmC++jKVrEMDwifgUOZDAqAbUIO7RFjjac1HfRhT6m5EEw+TXAwrS2NcU55Uy/smRavd6CRkilF+f/fjPy6uhSp1VsgrOaMxiDzPx9GeRi3d/gM+2HWsxyJshR9RUdoSxTbyQ5B4s5bh6UbzCgwNoS3g4S6WlY7MwP9KqjJZwVmbLTHRbwfR0toTZmxV+Ig4vEj7n9J28Qk6lnV4VRkzpuX2hLNgvxb8ceHDyJeXQmHl9Nva+Lqzbrn9WtL+2xCQaVv+2rcE3wSjXMG7BkdS90B7jh1snte+ESnSCSGjfi6O7/JyTcQgzZc8v5ssMKNKzCTqOVT0SqgLUKBkr636ViM3FE9e4/HousgHlsaw23FpsSPf9CTeSCEVWHun5mlAhHx6ZcNqxswH46Ht+JvI2e6TO7QgrVjaA9u8+ui2qVd4Zkn6QntF22tCOA85MaG1AEMz9I5erLUq4N0aKVmshgx2Mm76v5cEZ69O0LkiWjep/Noh6rDVXLC0=
+  on:
+    tags: true
+    repo: crypto-io/crypto-ecdh
