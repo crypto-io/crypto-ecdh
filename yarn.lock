@@ -17,15 +17,19 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-crypto-io-utils@^0.1.0-beta.1:
-  version "0.1.0-beta.1"
-  resolved "https://registry.yarnpkg.com/crypto-io-utils/-/crypto-io-utils-0.1.0-beta.1.tgz#f9f1a96cb41f85a50ecb8bd3e8b2a0647c1a8511"
+crypto-io-utils@^0.1.0-rc.2:
+  version "0.1.0-rc.2"
+  resolved "https://registry.yarnpkg.com/crypto-io-utils/-/crypto-io-utils-0.1.0-rc.2.tgz#8ff77def144839e3323b3e15b9cd9cd3f5c5fdb2"
   dependencies:
     crypto-js "^3.1.9-1"
 
 crypto-js@^3.1.9-1:
   version "3.1.9-1"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+
+crypto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
 
 deep-equal@~1.0.1:
   version "1.0.1"

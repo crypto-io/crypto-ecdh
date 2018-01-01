@@ -1,14 +1,14 @@
-import { encrypt, decrypt } from 'crypto-io-utils';
+import { encrypt, decrypt } from './../node_modules/crypto-io-utils/dist/utils-es.js';
 import crypto from 'crypto';
 
-export default () => {
+export default (encoding) => {
   const store = {};
   // Generate keys
   const ecdh = crypto.createECDH('secp256k1');
-  const pair = ecdh.generateKeys();
+  const pair = ecdh.generateKeys(encoding);
   return {
-    derive: pub => store.secret = ecdh.computeSecret(pub),
-    public: ecdh.getPublicKey(null, 'compressed'),
+    derive: pub => store.secret = ecdh.computeSecret(pub, encoding),
+    public: ecdh.getPublicKey(encoding, 'compressed'),
     encrypt: data => encrypt(data, store.secret.toString('hex')),
     decrypt: data => {
       if (!data) {

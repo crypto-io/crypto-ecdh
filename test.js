@@ -2,11 +2,8 @@ const test = require('tape');
 const ecdh = require('./ecdh.js');
 
 test('ready', tape => {
-  tape.plan(3);
+  tape.plan(2);
   const pair = ecdh();
-  const clone = ecdh(pair.pair);
-  tape.notEqual(pair.public.toString('hex'), clone.public.toString('hex'), `can't be cloned`);
-
   const client = ecdh();
   const sharedClient = client.derive(pair.public);
   const sharedServer = pair.derive(client.public);
