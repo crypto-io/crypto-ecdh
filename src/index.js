@@ -1,17 +1,15 @@
-import * as elliptic from 'elliptic';
 import { encrypt, decrypt } from 'crypto-io-utils';
-const EC = elliptic.ec
-const ec = new EC('curve25519');
+import crypto from 'crypto';
 
-export default (pair) => {
+export default () => {
   const store = {};
   // Generate keys
-  if (!pair) pair = ec.genKeyPair();
+  const ecdh = crypto.createECDH('secp256k1');
+  const pair = ecdh.generateKeys();
   return {
-    pair: pair,
-    derive: pub => store.secret = pair.derive(pub),
-    public: pair.getPublic(),
-    encrypt: data => encrypt(data, store.secret.toString(16)),
+    derive: pub => store.secret = ecdh.computeSecret(pub),
+    public: ecdh.getPublicKey(null, 'compressed'),
+    encrypt: data => encrypt(data, store.secret.toString('hex')),
     decrypt: data => {
       if (!data) {
         // try reading from our stored values when data is not defined
@@ -21,9 +19,9 @@ export default (pair) => {
         }
       }
       // decrypt given or stored data
-      return decrypt(data, store.secret.toString(16))
+      return decrypt(data, store.secret.toString('hex'))
     },
-    lock: data => store.data = encrypt(data, store.secret.toString(16)),
-    unlock: data => decrypt(store.data, store.secret.toString(16)),
+    lock: data => encrypt(data, store.secret.toString('hex')).then(data => store.data = data),
+    unlock: data => decrypt(store.data, store.secret.toString('hex')),
   }
 }
