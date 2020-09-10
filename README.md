@@ -24,3 +24,15 @@ client.encrypt('this is a test')
   .then(data => tape.equal(data, 'this is a test', 'encrypt/decrypt'))
 
 ```
+
+## development
+
+### install builder/compiler
+```sh
+npm i -g backed-cli
+```
+
+### build
+```sh
+backed -b
+```
