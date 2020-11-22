@@ -1,5 +1,5 @@
 const test = require('tape');
-const ecdh = require('./ecdh.js');
+const ecdh = require('./dist/commonjs/ecdh.js');
 
 test('ready', tape => {
   tape.plan(3);

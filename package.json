@@ -2,11 +2,18 @@
   "name": "crypto-ecdh",
   "version": "1.0.0",
   "description": "Easy ECDH",
-  "main": "ecdh.js",
+  "main": "dist/commonjs/ecdh.js",
+  "module": "dist/module/ecdh.js",
   "repository": "https://github.com/crypto-io/crypto-ecdh",
   "author": "Glenn Vandeuren <vandeurenglenn@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "node test.js",
+    "c": "rollup -c",
+    "w": "rollup -c -w",
+    "b": "browserify browser.js -o dist/browser/ecdh.js --standalone ECDH && rm browser.js"
+  },
   "backed": {
     "bundles": [
       {
@@ -20,6 +27,8 @@
     "crypto-io-utils": "^0.1.2"
   },
   "devDependencies": {
+    "browserify": "^17.0.0",
+    "rollup": "^2.33.3",
     "tape": "^4.13.3"
   }
 }
