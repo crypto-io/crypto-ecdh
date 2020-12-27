@@ -4,6 +4,7 @@
   "description": "Easy ECDH",
   "main": "dist/commonjs/ecdh.js",
   "module": "dist/module/ecdh.js",
+  "browser": "dist/browser/ecdh.js",
   "repository": "https://github.com/crypto-io/crypto-ecdh",
   "author": "Glenn Vandeuren <vandeurenglenn@gmail.com>",
   "license": "MIT",
@@ -28,7 +29,7 @@
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "rollup": "^2.33.3",
+    "rollup": "^2.35.1",
     "tape": "^4.13.3"
   }
 }

@@ -1,4 +1,4 @@
-import { encrypt, decrypt } from './../node_modules/crypto-io-utils/dist/utils-es.js';
+import { encrypt, decrypt } from 'crypto-io-utils';
 import crypto from 'crypto';
 
 export default (encoding = 'hex') => {
